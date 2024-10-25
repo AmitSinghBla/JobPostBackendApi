@@ -1,5 +1,6 @@
 package com.example.jobweb.services;
 
+import com.example.jobweb.JobwebApplication;
 import com.example.jobweb.entity.JobPost;
 import com.example.jobweb.repositories.JobPostRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,10 @@ public class JobServices {
         }else {
             return false;
         }
+    }
+
+    public JobPost getJobByid(int id) {
+        Optional<JobPost> existingJob = jobPostRepo.findById(id);
+        return existingJob.get();
     }
 }
